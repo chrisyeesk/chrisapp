@@ -28,6 +28,13 @@ export function Chat() {
     handleSubmit(event); // Call the handleSubmit function from useChat hook with the event object
   };
 
+  const handleTextareaKeyDown = (e: any) => {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault(); // Prevent new line in textarea
+      handleSubmit(e); // Call handleSubmit function on Enter press and pass the event object
+    }
+  };
+
   return (
     <main className="flex flex-col w-full h-screen max-h-dvh bg-black">
       <section className="container px-4 pb-10 flex flex-col flex-grow gap-4 mx-auto max-w-3xl">
@@ -68,12 +75,7 @@ export function Chat() {
             value={input}
             placeholder="Type your message here."
             onChange={handleInputChange}
-            onKeyDown={(e: React.KeyboardEvent<HTMLTextAreaElement>) => {
-              if (e.key === 'Enter' && !e.shiftKey) {
-                e.preventDefault(); // Prevent new line in textarea
-                handleSubmit(e); // Call handleSubmit function on Enter press and pass the event object
-              }
-            }}
+            onKeyDown={handleTextareaKeyDown}
           />
           <Button type="submit" className="ml-3 h-16 w-20">
             <Send />
