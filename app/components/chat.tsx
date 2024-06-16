@@ -60,7 +60,7 @@ export function Chat() {
 
       <footer className="p-4 w-full max-w-3xl mx-auto">
         <form
-          onSubmit={handleSubmit}
+          onSubmit={handleFormSubmit}
           className="flex w-full max-w-3xl mx-auto items-center"
         >
           <Textarea
