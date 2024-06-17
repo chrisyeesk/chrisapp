@@ -43,30 +43,12 @@ export async function POST(req: Request) {
 
     const docs = await loader.load();
 
-    // load a JSON object
-    // const textSplitter = new CharacterTextSplitter();
-    // const docs = await textSplitter.createDocuments([JSON.stringify({
-    //     "state": "Kansas",
-    //     "slug": "kansas",
-    //     "code": "KS",
-    //     "nickname": "Sunflower State",
-    //     "website": "https://www.kansas.gov",
-    //     "admission_date": "1861-01-29",
-    //     "admission_number": 34,
-    //     "capital_city": "Topeka",
-    //     "capital_url": "http://www.topeka.org",
-    //     "population": 2893957,
-    //     "population_rank": 34,
-    //     "constitution_url": "https://kslib.info/405/Kansas-Constitution",
-    //     "twitter_url": "http://www.twitter.com/ksgovernment",
-    // })]);
-
     const prompt = PromptTemplate.fromTemplate(TEMPLATE);
 
     const model = new ChatOpenAI({
       apiKey: process.env.OPENAI_API_KEY!,
-      model: 'gpt-3.5-turbo',
-      temperature: 0.8,
+      model: 'gpt-4o',
+      temperature: 0.7,
       streaming: true,
       verbose: true,
     });
