@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 'use client';
 
 import { Button } from '@/components/ui/button';
@@ -55,11 +56,16 @@ export function Chat() {
   return (
     <main className="flex flex-col w-full h-screen max-h-dvh bg-black">
       <section className="container px-4 pb-10 flex flex-col flex-grow gap-4 mx-auto max-w-3xl">
-        <div className="flex mt-3 items-center">
-          <BotMessageSquare size={36} className="text-gray-400 pt-1" />
-          <p className="ml-2 pb-2 mt-5 text-xl text-gray-400 font-semibold mb-2">
-            Chris' AI Assistant
-          </p>
+        <div className="flex mt-5 items-center">
+          <BotMessageSquare size={47} className="text-gray-400 pt-1" />
+          <div>
+            <div className="ml-2 text-xl text-gray-400 font-semibold">
+              Chris' AI Assistant
+            </div>
+            <div className="text-xs ml-2 text-gray-400 font-semibold">
+              built by Chris
+            </div>
+          </div>
         </div>
         <ul
           ref={chatParent}
@@ -67,8 +73,8 @@ export function Chat() {
         >
           <li className="flex justify-end">
             <div className="mb-1 rounded-lg py-3 px-5 bg-gray-600 text-sm text-white max-w-[70%] break-words">
-              Hi there! I am Chris' AI assistant. Ask me anything about Chris'
-              education background, work experience and skills.
+              I am Chris' AI assistant. Ask me anything about Chris' education
+              background, work experience and skills.
             </div>
           </li>
           {messages.map((m, index) => (
@@ -97,13 +103,13 @@ export function Chat() {
             <section className="mb-2 gap-3 flex">
               <div
                 onClick={() =>
-                  handleClickQuestion('What did Chris Study for University?')
+                  handleClickQuestion('What did Chris Study at University?')
                 }
                 className="w-1/2 h-30 sm:h-20 py-3 px-4 text-sm text-left items-center align-middle rounded-md border border-gray-600 bg-gray-900 hover:bg-gray-800 "
               >
                 <div className="text-gray-100">Example Question 1:</div>
                 <div className="text-gray-400">
-                  What did Chris Study for University?
+                  What did Chris Study at University?
                 </div>
               </div>
               <div
@@ -131,7 +137,8 @@ export function Chat() {
               >
                 <div className="text-gray-100">Example Question 3:</div>
                 <div className="text-gray-400">
-                  What did Chris Learn in his software engineering internship at Sincidium?
+                  What did Chris Learn in his software engineering internship at
+                  Sincidium?
                 </div>
               </div>
               <div
@@ -144,7 +151,8 @@ export function Chat() {
               >
                 <div className="text-gray-100">Example Question 4:</div>
                 <div className="text-gray-400">
-                  What did Chris Learn during his internship as a frontend developer at Webby Group?
+                  What did Chris Learn during his internship as a frontend
+                  developer at Webby Group?
                 </div>
               </div>
             </section>
